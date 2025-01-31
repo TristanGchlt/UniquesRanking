@@ -2,14 +2,11 @@ from flask import render_template, redirect, url_for, request, make_response, fl
 from flask_login import login_user, logout_user, login_required, current_user
 from flask import current_app as app
 from flask_babel import _
-
 from sqlalchemy import delete
-
 from app import db
 from app.models import User, Card, Duel, favorites
 from app.functions import card_from_ref, get_locale, create_duel_char, create_duel_fact, create_duel_rand, can_refill, get_K_factor, calculate_elo_delta, card_graph, update_card_from_ref
 from app.forms import RegistrationForm, LoginForm
-
 import re
 import pytz
 import os
@@ -20,7 +17,7 @@ max_fact = 50
 max_char = 50
 max_rand = 50
 
-# CHemins vers les répertoires d'images
+# Chemins vers les répertoires d'images
 PNG_DIR = 'static/image/png'
 WEBP_DIR = 'static/image/webp'
 
@@ -56,8 +53,6 @@ def inject_globals():
 
 
 
-
-
 # Cette route permet de vérifier sur l'utilisateur est déjà connecté sur ce navigateur.
 @app.before_request
 def load_user_from_cookie():
@@ -69,8 +64,6 @@ def load_user_from_cookie():
         if user :
             # Si c'est le cas, on connecte cet utilisateur.
             login_user(user)
-
-
 
 
 
@@ -88,15 +81,12 @@ def set_timezone():
 
 
 
-
-
 # Cette route permet à un utilisateur de se connecter ou de s'inscrire.
 @app.route('/register', methods=['GET', 'POST'])
 def register() :
     # Création des formulaires de connexion et d'inscription.
     reg_form = RegistrationForm()
     log_form = LoginForm()
-
     # Si la page charge un renvoi de formulaire :
     if request.method == 'POST':
         form_type = request.form.get('form_type')
@@ -110,7 +100,6 @@ def register() :
                 regnameerror = _('regnameerror')
                 flash(regnameerror, 'register')
                 return redirect(url_for('register'))
-
             # Traitement du formulaire d'inscription
             user = User(username=reg_form.username.data)
             user.set_password(reg_form.password.data)
@@ -124,13 +113,11 @@ def register() :
             # Un utilisateur qui crée son compte est alors connecté et renvoyé en page d'accueil.
             login_user(user)
             return redirect(url_for('home'))
-        
         # dans le cas ou c'est le formulaire de connexion :
         elif form_type == 'login' and log_form.validate_on_submit():
             # On bloque la session à 10 tentatives.
             if session.get('login_attempts', 0) > 10 :
                 return redirect(url_for('register'))
-
             # Traitement du formulaire de connexion
             user = User.query.filter_by(username=log_form.username.data).first()
             if user:
@@ -160,12 +147,7 @@ def register() :
                 if field == "password2":
                     regpasserror = _('regpasserror')
                     flash(regpasserror, 'register')
-
     return render_template('register.html', reg_form=reg_form, log_form=log_form)
-
-
-
-
 
 
 
@@ -181,16 +163,11 @@ def logout() :
 
 
 
-
-
 # Route de la page d'accueil
 @app.route('/')
 def home() :
-
     top_card = db.session.query(Card).filter(Card.hide==0).order_by(Card.elo.desc()).all()[:3]
     return render_template('home.html', top_card=top_card)
-
-
 
 
 
@@ -248,8 +225,6 @@ def add_cards() :
 
 
 
-
-
 # Route pour le classement
 @app.route('/ladder')
 def ladder() :
@@ -296,8 +271,6 @@ def ladder() :
     else :
         cards = query.order_by(Card.elo.desc()).paginate(per_page = per_page)
     return render_template('ladder.html', cards=cards.items, pagination=cards, start_num=(page-1) * per_page, all_cards=all_cards, selected_character=character)
-
-
 
 
 
@@ -416,22 +389,20 @@ def duel_fact() :
                 'url_right' : last_card_right.url_en_us
             }
         altered_card_link = 'https://www.altered.gg/cards/'
-
         left_ref_split = card_a.reference.split('_')
         card_left_rare_url = altered_card_link + f'{left_ref_split[0]}_{left_ref_split[1]}_{left_ref_split[2]}_{left_ref_split[3]}_{left_ref_split[4]}_'
         if left_ref_split[3].startswith(card_a.faction[0]):
             card_left_rare_url += 'R1'
         else :
-            card_left_rare_url += 'R2'
-        
+            card_left_rare_url += 'R2' 
         right_ref_split = card_b.reference.split('_')
         card_right_rare_url = altered_card_link + f'{right_ref_split[0]}_{right_ref_split[1]}_{right_ref_split[2]}_{right_ref_split[3]}_{right_ref_split[4]}_'
         if right_ref_split[3].startswith(card_b.faction[0]):
             card_right_rare_url += 'R1'
         else :
             card_right_rare_url += 'R2'
-
     return render_template('duel.html', card_left = card_a, card_right = card_b, card_right_rare_url = card_right_rare_url, card_left_rare_url=card_left_rare_url, last_duel=last_duel, action=action)
+
 
 
 @app.route('/duel_char', methods=['GET', 'POST'])
@@ -546,22 +517,21 @@ def duel_char() :
                 'url_right' : last_card_right.url_en_us
             }
         altered_card_link = 'https://www.altered.gg/cards/'
-
         left_ref_split = card_a.reference.split('_')
         card_left_rare_url = altered_card_link + f'{left_ref_split[0]}_{left_ref_split[1]}_{left_ref_split[2]}_{left_ref_split[3]}_{left_ref_split[4]}_'
         if left_ref_split[3].startswith(card_a.faction[0]):
             card_left_rare_url += 'R1'
         else :
             card_left_rare_url += 'R2'
-        
         right_ref_split = card_b.reference.split('_')
         card_right_rare_url = altered_card_link + f'{right_ref_split[0]}_{right_ref_split[1]}_{right_ref_split[2]}_{right_ref_split[3]}_{right_ref_split[4]}_'
         if right_ref_split[3].startswith(card_b.faction[0]):
             card_right_rare_url += 'R1'
         else :
             card_right_rare_url += 'R2'
-
     return render_template('duel.html', card_left = card_a, card_right = card_b, card_right_rare_url = card_right_rare_url, card_left_rare_url=card_left_rare_url, last_duel=last_duel, action=action)
+
+
 
 @app.route('/duel_rand', methods=['GET', 'POST'])
 @login_required
@@ -675,21 +645,18 @@ def duel_rand() :
                 'url_right' : last_card_right.url_en_us
             }
         altered_card_link = 'https://www.altered.gg/cards/'
-
         left_ref_split = card_a.reference.split('_')
         card_left_rare_url = altered_card_link + f'{left_ref_split[0]}_{left_ref_split[1]}_{left_ref_split[2]}_{left_ref_split[3]}_{left_ref_split[4]}_'
         if left_ref_split[3].startswith(card_a.faction[0]):
             card_left_rare_url += 'R1'
         else :
             card_left_rare_url += 'R2'
-        
         right_ref_split = card_b.reference.split('_')
         card_right_rare_url = altered_card_link + f'{right_ref_split[0]}_{right_ref_split[1]}_{right_ref_split[2]}_{right_ref_split[3]}_{right_ref_split[4]}_'
         if right_ref_split[3].startswith(card_b.faction[0]):
             card_right_rare_url += 'R1'
         else :
             card_right_rare_url += 'R2'
-
     return render_template('duel.html', card_left = card_a, card_right = card_b, card_right_rare_url = card_right_rare_url, card_left_rare_url=card_left_rare_url, last_duel=last_duel, action=action)
 
 
@@ -709,31 +676,29 @@ def refill():
         return jsonify({'message': f"{_('refilldelay')} {_('lastrefill')} : {refill_date.strftime('%b-%d %H:%M')}"}), 403
 
 
+
 @app.route('/profile')
 @login_required
 def profile() :    
     cards=[]
     page = request.args.get('page', default=1, type=int)
-    per_page = 10
+    per_page = 20
     favorites = current_user.favcards
-
     for fav in favorites :
         fav_card = db.session.query(Card).filter_by(id=fav.id).first()
         cards.append(fav_card)
-
     user_id = int(current_user.id)
     charduels = db.session.query(db.func.count(Duel.id)).filter(Duel.user_id == user_id, Duel.type == 'char').scalar()-1
     factduels = db.session.query(db.func.count(Duel.id)).filter(Duel.user_id == user_id, Duel.type == 'fact').scalar()-1
     randduels = db.session.query(db.func.count(Duel.id)).filter(Duel.user_id == user_id, Duel.type == 'rand').scalar()-1
-
     if len(cards) > 0 :
         cards.sort(key=lambda x: x.elo, reverse=True)
         max_pages=max(len(cards)//per_page + 1 - ((len(cards)%per_page)==0),1)
         cards = cards[(page-1)*per_page:min(page*per_page, len(cards))]
     else :
         max_pages=1
-
     return render_template('profile.html', cards=cards, charduels=charduels, factduels=factduels, randduels=randduels, max_pages=max_pages, page=page)
+
 
 
 @app.route('/card/<string:card_ref>')
@@ -758,7 +723,6 @@ def cardview(card_ref) :
                 Card.elo > card.elo,
                 Card.nb_duel >= duel_min).scalar() +1
             total_cards = len(db.session.query(Card).filter(Card.nb_duel >= duel_min, Card.hide==0).all())
-            
             all_elos = [c.elo for c in db.session.query(Card).filter(
                                             Card.character_en_us == card.character_en_us,
                                             Card.faction == card.faction,
@@ -782,7 +746,6 @@ def cardview(card_ref) :
             elif lang == "de" :
                 character = card.character_de_de
                 title = "Elo-Verteilungsgrafik"
-
             graph = card_graph(all_elos, card.faction, title=f'{title}\n{card.faction} - {character}', min_elo=min_elo, max_elo=max_elo, card_elo=card.elo)
             html_graph = f'<img src="data:image/png;base64,{graph}">'
         else :
@@ -796,6 +759,7 @@ def cardview(card_ref) :
     else :
         return redirect(url_for('add_cards'))
     return render_template('card.html', card=card, avg_elo=avg_elo,rank=rank,total_cards=total_cards, favorites=favorites, graph=html_graph)
+
 
 
 @app.route('/add_favorite/<int:card_id>', methods=['POST'])
@@ -825,6 +789,7 @@ def set_language(language):
         response.set_cookie('lang', language, max_age=60*60*24*365)
         return response
     return redirect(request.referrer or '/')
+
 
 
 @app.route('/json/<string:card_ref>')
