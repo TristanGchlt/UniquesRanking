@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+
+{% block title %}Uniques Ranking{% endblock %}
+
+{% block content %}
+<div class="row-justify-content-center title">
+   - {{ _('welcome') }} -
+</div>
+<div class="page-content">
+    <div class="row card-box-transparent mobilemargin" style="width: 100%;">
+        <div class="row-justify-content-center" style="width: 100%; gap: 7%;">
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="card-img-wrapper"> 
+                        <div class="row-justify-content-center">
+                             <img src="{{url_for('serve_image', filename = 'gold_medal.png')}}" class="medal">
+                        </div>
+                        <img src="{% if get_locale() == 'fr' %}{{ top_card[0].url_fr_fr }}{% else %}{{ top_card[0].url_en_us }}{% endif %}" 
+                            alt="{% if get_locale() == 'fr' %}{{ top_card[0].character_fr_fr }}{% else %}{{ top_card[0].character_en_us }}{% endif %}" 
+                            class="card-thumbnail load-img card-img" 
+                            url-en="{{ top_card[0].url_en_us }}" 
+                            onclick="redirectToCard('{{ url_for('cardview', card_ref=top_card[0].reference) }}')" 
+                            onerror="this.onerror=null;this.src='{{top_card[0].url_en_us}}';">
+                    </div>
+                </div>
+                <div class="row row-justify-content-center elocardhome" style="text-align: center;">
+                    <p>Elo : <span class="darker">{{ top_card[0].elo | round(1) }} </span> - {{_('duels')}} : <span class="darker">{{ top_card[0].nb_duel }}</span></p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="card-img-wrapper"> 
+                        <div class="row-justify-content-center">
+                            <img src="{{url_for('serve_image', filename = 'silver_medal.png')}}" class="medal" >
+                       </div>
+                        <img src="{% if get_locale() == 'fr' %}{{ top_card[1].url_fr_fr }}{% else %}{{ top_card[1].url_en_us }}{% endif %}" 
+                            alt="{% if get_locale() == 'fr' %}{{ top_card[1].character_fr_fr }}{% else %}{{ top_card[1].character_en_us }}{% endif %}" 
+                            class="card-thumbnail load-img card-img" 
+                            url-en="{{ top_card[1].url_en_us }}" 
+                            onclick="redirectToCard('{{ url_for('cardview', card_ref=top_card[1].reference) }}')" 
+                            onerror="this.onerror=null;this.src='{{top_card[1].url_en_us}}';">
+                    </div>
+                </div>
+                <div class="row row-justify-content-center elocardhome" style="text-align: center;">
+                    <p>Elo : <span class="darker">{{ top_card[1].elo | round(1) }} </span> - {{_('duels')}} : <span class="darker">{{ top_card[1].nb_duel }}</span></p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="card-img-wrapper"> 
+                        <div class="row-justify-content-center">
+                            <img src="{{url_for('serve_image', filename = 'bronze_medal.png')}}" class="medal" >
+                       </div>
+                            <img src="{% if get_locale() == 'fr' %}{{ top_card[2].url_fr_fr }}{% else %}{{ top_card[2].url_en_us }}{% endif %}" 
+                                 alt="{% if get_locale() == 'fr' %}{{ top_card[2].character_fr_fr }}{% else %}{{ top_card[2].character_en_us }}{% endif %}" 
+                                 class="card-thumbnail load-img card-img" 
+                                 url-en="{{ top_card[2].url_en_us }}" 
+                                 onclick="redirectToCard('{{ url_for('cardview', card_ref=top_card[2].reference) }}')" 
+                                 onerror="this.onerror=null;this.src='{{top_card[2].url_en_us}}';">
+                    </div>
+                </div>
+                <div class="row row-justify-content-center elocardhome" style="text-align: center;">
+                    <p>Elo : <span class="darker">{{ top_card[2].elo | round(1) }} </span>- {{_('duels')}} : <span class="darker">{{ top_card[2].nb_duel }} </span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="space2" style="height: 200px;"></div>
+<script>
+function redirectToCard(url) {
+    window.location.href = url;
+}
+    function apply3DEffect(cardElement) {
+    cardElement.addEventListener('mousemove', (e) => {
+        const rect = cardElement.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = (y - centerY) / centerY * 15;
+        const rotateY = (x - centerX) / centerX * -15;
+        // Ajout de la transformation 3D avec l'ombre
+        cardElement.querySelector('.card-img').style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        cardElement.querySelector('.card-img').style.boxShadow = '0 0 15px rgba(0, 0, 0, 0.7)';
+    });
+    cardElement.addEventListener('mouseleave', () => {
+        // Réinitialise la transformation mais garde l'ombre
+        cardElement.querySelector('.card-img').style.transform = 'rotateX(0) rotateY(0)';
+        cardElement.querySelector('.card-img').style.boxShadow = '0 0 15px rgba(0, 0, 0, 0.7)';
+    });
+}
+// Appliquer l'effet sur chaque wrapper de carte
+const cardWrappers = document.querySelectorAll('.card-img-wrapper');
+cardWrappers.forEach(apply3DEffect);
+if (window.location.pathname === '/') {
+        document.body.style.backgroundPositionY = '90%'; // Exemple : ajuster l'image de fond
+        document.body.style.backgroundPositionX = '74%'; // Exemple : ajuster l'image de fond
+    }
+
+</script>
+{% endblock %}

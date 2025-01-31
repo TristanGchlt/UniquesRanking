@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}{{_('addcards')}}{% endblock %}
+
+{% block content %}
+<div class="row-justify-content-center title">
+    - {{_('addcards')}} -
+</div>
+<div class="page-content">
+    <div class = "card-box row row-justify-content-center" style="width: 76%; margin-bottom:14%; margin-top:-10px;">
+        <p class="section-text">{{_('findref')}}</p>
+        <img src="{{url_for('serve_image', filename = 'ref_guide.png')}}" class="guide_img">
+        <p class="section-text">{{_('copyref')}}</p>
+        <form method="POST" class="flex-col-div" style="min-width:20%;">
+            <input style="width: 52%; background-color: var(--back-color);" type="text" id="card_string" name="card_string" required placeholder="ALT_COREKS_B_BR_14_U_5018">
+            <button style="width: auto; margin-bottom:20px" type="submit" class="primary-btn">{{_('addcards')}}</button>
+        </form>
+
+    {% if get_flashed_messages() %}
+        {% for message in get_flashed_messages() %}
+            <div class="section-text">
+                {% if existing_card %}
+                    <a href="{{ url_for('cardview', card_ref=existing_card.reference) }}">
+                        {% if get_locale() == 'fr' %}
+                            {{ existing_card.character_fr_fr }}
+                        {% elif get_locale() == 'it' %}
+                            {{ existing_card.character_it_it }}
+                        {% elif get_locale() == 'es' %}
+                            {{ existing_card.character_es_es }}
+                        {% elif get_locale() == 'de' %}
+                            {{ existing_card.character_de_de }}
+                        {% else %}
+                            {{ existing_card.character_en_us }}
+                        {% endif %}
+                        #{{ existing_card.num }}
+                    </a>
+                {% endif %}
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+</div>
+<div style="height: 20%;">
+</div>
+
+<script>
+    if (window.location.pathname === '/add_cards') {
+        document.body.style.backgroundPositionY = '90%'; // Exemple : ajuster l'image de fond
+        document.body.style.backgroundPositionX = '74%'; // Exemple : ajuster l'image de fond
+    }
+</script>
+{% endblock %}

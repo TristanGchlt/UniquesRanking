@@ -1,0 +1,222 @@
+msgid ""
+msgstr ""
+"Language: en\n"
+
+msgid "username"
+msgstr "Username"
+
+msgid "email"
+msgstr "Email"
+
+msgid "password"
+msgstr "Password"
+
+msgid "repeatpassword"
+msgstr "Password (confirmation)"
+
+msgid "register"
+msgstr "Register"
+
+msgid "login"
+msgstr "Log in"
+
+msgid "regsuccess"
+msgstr "Account created successfully."
+
+msgid "regnameerror"
+msgstr "Username unavailable."
+
+msgid "regpasserror"
+msgstr "Incorrect password."
+
+msgid "logpasserror"
+msgstr "Incorrect password."
+
+msgid "logemailerror"
+msgstr "Incorrect username."
+
+msgid "logout"
+msgstr "Log out"
+
+msgid "duel"
+msgstr "Duel"
+
+msgid "ladder"
+msgstr "Leaderboard"
+
+msgid "globalstat"
+msgstr "Statistics"
+
+msgid "addcards"
+msgstr "Add a card"
+
+msgid "mycards"
+msgstr "My cards"
+
+msgid "rightmsg"
+msgstr "Any information on this site regarding Altered, whether literal or graphical, is the property of Equinox. This site is not produced, supported, or affiliated with Equinox."
+
+msgid "welcome"
+msgstr "Welcome"
+
+msgid "uniquescounter"
+msgstr "Uniques added"
+
+msgid "duelscounter"
+msgstr "Duels played"
+
+msgid "duels"
+msgstr "Duels"
+
+msgid "findref"
+msgstr "Where to find your card's reference?"
+
+msgid "copyref"
+msgstr "Copy your unique's reference here"
+
+msgid "alreadyavailable"
+msgstr " is already available."
+
+msgid "newcard"
+msgstr " added."
+
+msgid "cardnotfound"
+msgstr "Card not found, check if it is public.\nTo make a card public, it needs to be added to the tradelist.\nOnce added here, you can remove the card from your tradelist if you wish."
+
+msgid "wrongref"
+msgstr "This reference does not follow the correct format."
+
+msgid "sort"
+msgstr "Sort"
+
+msgid "bestrankings"
+msgstr "Best Rankings"
+
+msgid "worstrankings"
+msgstr "Worst Rankings"
+
+msgid "filterfaction"
+msgstr "Faction Filter"
+
+msgid "all"
+msgstr "All"
+
+msgid "filterchar"
+msgstr "Character Filter"
+
+msgid "nofilter"
+msgstr "No Filter"
+
+msgid "rank"
+msgstr "Rank"
+
+msgid "character"
+msgstr "Character"
+
+msgid "faction"
+msgstr "Faction"
+
+msgid "previous"
+msgstr "Previous"
+
+msgid "next"
+msgstr "Next"
+
+msgid "resetsorting"
+msgstr "Reset Sorting"
+
+msgid "average elo"
+msgstr "Average Elo"
+
+msgid "highest elo"
+msgstr "Highest Elo"
+
+msgid "lowest elo"
+msgstr "Lowest Elo"
+
+msgid "totalcards"
+msgstr "Total Cards"
+
+msgid "totalduels"
+msgstr "Total Duels"
+
+msgid "5duelmin"
+msgstr "Only cards with more than five duels played are taken into account in these statistics."
+
+msgid "charduel"
+msgstr "Character Duel"
+
+msgid "factduel"
+msgstr "Faction Duel"
+
+msgid "randduel"
+msgstr "Random Duel"
+
+msgid "canbefav"
+msgstr "You can add cards to your profile from each card's page. The ones you add are automatically saved to your profile."
+
+msgid "removefromfav"
+msgstr "Remove from your favorites"
+
+msgid "addtofav"
+msgstr "Add to your favorites"
+
+msgid "user"
+msgstr "User"
+
+msgid "refill"
+msgstr "Refill"
+
+msgid "refilldelay"
+msgstr "You can only refill once every 24 hours."
+
+msgid "factdueldesc"
+msgstr "Determine the best unique card among two cards from the same faction."
+
+msgid "chardueldesc"
+msgstr "Determine the best unique card among two cards from the same character."
+
+msgid "randdueldesc"
+msgstr "Determine the best unique card among two random cards."
+
+msgid "lastrefill"
+msgstr "Last refill"
+
+msgid "see rare"
+msgstr "See the rare version."
+
+msgid "draw"
+msgstr "Draw"
+
+msgid "lastduel"
+msgstr "Previous duel"
+
+msgid "legalnotice"
+msgstr "Legal Notice"
+
+msgid "contact"
+msgstr "Contact"
+
+msgid "termsofuse"
+msgstr "Terms of Use"
+
+msgid "rememberme"
+msgstr "Remember me"
+
+msgid "disclaimer"
+msgstr "The scores presented on this site may sometimes suffer from bias due to their community-based nature. Please do not use them as a selling argument.<br>If you witness such use of this site, please communicate this disclaimer."
+
+msgid "users"
+msgstr "Users"
+
+msgid "credit"
+msgstr "Concept by Tristan (Ilad) with the contribution of Nathan ([SBTFU] Naka)"
+
+msgid "filterhidden"
+msgstr "Activity Filter"
+
+msgid "Actives"
+msgstr "Active"
+
+msgid "Toutes"
+msgstr "All"

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}{% if get_locale() == 'fr' %}{{ card.character_fr_fr }}{% elif get_locale() == 'en' %}{{ card.character_en_us }}{% elif get_locale() == 'de' %}{{ card.character_de_de }}{% elif get_locale() == 'es' %}{{ card.character_es_es }}{% elif get_locale() == 'it' %}{{ card.character_it_it }}{% endif %} #{{ card.num }}{% endblock %}
+{% block content %}
+<div class="row-justify-content-center title" >
+    {% if get_locale() == 'fr' %}{{ card.character_fr_fr }}{% elif get_locale() == 'en' %}{{ card.character_en_us }}{% elif get_locale() == 'de' %}{{ card.character_de_de }}{% elif get_locale() == 'es' %}{{ card.character_es_es }}{% elif get_locale() == 'it' %}{{ card.character_it_it }}{% endif %} #{{ card.num }}
+</div>
+<div class="page-content">
+
+    <div class="row-justify-content-center" style="width:100%; margin-top: -41px;">
+        <div class="card-image col-md-5">
+            <img src="{% if get_locale() == 'fr' %}{{ card.url_fr_fr }}{% elif get_locale() == 'en' %}{{ card.url_en_us }}{% elif get_locale() == 'de' %}{{ card.url_de_de }}{% elif get_locale() == 'es' %}{{ card.url_es_es }}{% elif get_locale() == 'it' %}{{ card.url_it_it }}{% endif %}" class="full-card-image load-img" id="card-img" url-en="{{ card.url_en_us }}" style="max-width:100%;border-radius:16px;    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 6px 12px rgba(0, 0, 0, 0.1); /* Ombre plus marquée */" onerror="this.onerror=null;this.src='{{ card.url_en_us }}';">
+        </div>
+        <div class="card-box col-md-7" style="max-height: 80%;">
+                <div class="row-justify-content-center" style="text-align:center; gap: 12%;">
+                    <p class="stat-title">Elo </p>
+                    <p class="stat-title">{{ _('average elo') }}<br>{% if get_locale() == 'fr' %}{{ card.character_fr_fr }}{% elif get_locale() == 'en' %}{{ card.character_en_us }}{% elif get_locale() == 'de' %}{{ card.character_de_de }}{% elif get_locale() == 'es' %}{{ card.character_es_es }}{% elif get_locale() == 'it' %}{{ card.character_it_it }}{% endif %} ({{ card.faction }})</p>
+                    <p class="stat-title">{{ _('rank') }}</p>
+                    <p class="stat-title">{{ _('duels')}}</p>
+                </div>
+                <div class="row-justify-content-center" style="text-align:center;gap: 19%;margin-top: -33px;margin-right: 15px;">
+                    <p class="stat-value">{{ card.elo | round(1) }}</p>
+                    <p class="stat-value">{{ avg_elo | round(1) }}</p>
+                    <p class="stat-value">{{ rank }} / {{ total_cards }}</p>
+                    <p class="stat-value">{{ card.nb_duel }}</p>
+                </div>
+            <div class="row-justify-content-center" style="width:100%;">
+                <div class="card-graph" style="width: 100%;">
+                    {{ graph|safe }}
+                </div>
+            </div>
+            <div class="row-justify-content-center" style="width:100%;">
+                <form action="{{ url_for('add_favorite', card_id=card.id) }}" method="post" style="display:inline;">
+                    {% if card.id in favorites %}
+                        <button type="submit" class="primary-btn" style="width:100%;">{{ _('removefromfav')}}</button>
+                    {% else %}
+                        <button type="submit" class="primary-btn" style="width:100%;"> {{ _('addtofav')}}</button>
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+    </div>
+    <p class="stat-disclaimer" style="margin-bottom:120px;">{{ _('5duelmin') }}</p>
+</div>
+{% endblock %}

@@ -1,0 +1,222 @@
+msgid ""
+msgstr ""
+"Language: es\n"
+
+msgid "username"
+msgstr "Nombre de usuario"
+
+msgid "email"
+msgstr "Correo electrónico"
+
+msgid "password"
+msgstr "Contraseña"
+
+msgid "repeatpassword"
+msgstr "Contraseña (confirmación)"
+
+msgid "register"
+msgstr "Registrarse"
+
+msgid "login"
+msgstr "Iniciar sesión"
+
+msgid "regsuccess"
+msgstr "Cuenta creada con éxito."
+
+msgid "regnameerror"
+msgstr "Nombre de usuario no disponible."
+
+msgid "regpasserror"
+msgstr "Contraseña incorrecta."
+
+msgid "logpasserror"
+msgstr "Contraseña incorrecta."
+
+msgid "logemailerror"
+msgstr "Nombre de usuario incorrecto."
+
+msgid "logout"
+msgstr "Cerrar sesión"
+
+msgid "duel"
+msgstr "Duel"
+
+msgid "ladder"
+msgstr "Clasificación"
+
+msgid "globalstat"
+msgstr "Estadísticas"
+
+msgid "addcards"
+msgstr "Añadir una carta"
+
+msgid "mycards"
+msgstr "Mis cartas"
+
+msgid "rightmsg"
+msgstr "Toda la información en este sitio sobre Altered, ya sea literal o gráfica, es propiedad de Equinox. Este sitio no es producido, apoyado ni está afiliado a Equinox."
+
+msgid "welcome"
+msgstr "Bienvenido"
+
+msgid "uniquescounter"
+msgstr "Únicas añadidas"
+
+msgid "duelscounter"
+msgstr "Duels jugados"
+
+msgid "duels"
+msgstr "Duels"
+
+msgid "findref"
+msgstr "¿Dónde encontrar la referencia de tu carta?"
+
+msgid "copyref"
+msgstr "Copia la referencia de tu única aquí"
+
+msgid "alreadyavailable"
+msgstr " ya está disponible."
+
+msgid "newcard"
+msgstr " añadida."
+
+msgid "cardnotfound"
+msgstr "Carta no encontrada, verifica si es pública.\nPara hacer pública una carta, debes añadirla a la lista de intercambio.\nUna vez añadida aquí, puedes eliminar la carta de tu lista de intercambio si lo deseas."
+
+msgid "wrongref"
+msgstr "Esta referencia no sigue el formato correcto."
+
+msgid "sort"
+msgstr "Ordenar"
+
+msgid "bestrankings"
+msgstr "Las mejores clasificaciones"
+
+msgid "worstrankings"
+msgstr "Las peores clasificaciones"
+
+msgid "filterfaction"
+msgstr "Filtro de facción"
+
+msgid "all"
+msgstr "Todas"
+
+msgid "filterchar"
+msgstr "Filtro de personaje"
+
+msgid "nofilter"
+msgstr "Sin filtro"
+
+msgid "rank"
+msgstr "Posición"
+
+msgid "character"
+msgstr "Personaje"
+
+msgid "faction"
+msgstr "Facción"
+
+msgid "previous"
+msgstr "Anterior"
+
+msgid "next"
+msgstr "Siguiente"
+
+msgid "resetsorting"
+msgstr "Restablecer Orden"
+
+msgid "average elo"
+msgstr "Elo Promedio"
+
+msgid "highest elo"
+msgstr "Mejor Elo"
+
+msgid "lowest elo"
+msgstr "Peor Elo"
+
+msgid "totalcards"
+msgstr "Cartas"
+
+msgid "totalduels"
+msgstr "Duelos"
+
+msgid "5duelmin"
+msgstr "Solo se tienen en cuenta las cartas que han disputado más de cinco duelos en estas estadísticas."
+
+msgid "charduel"
+msgstr "Duelo de Personajes"
+
+msgid "factduel"
+msgstr "Duelo de Facciones"
+
+msgid "randduel"
+msgstr "Duelo Aleatorio"
+
+msgid "canbefav"
+msgstr "Puedes añadir cartas a tu perfil desde la página de cada carta. Las que añades se guardan automáticamente en tu perfil."
+
+msgid "removefromfav"
+msgstr "Eliminar de tus favoritos"
+
+msgid "addtofav"
+msgstr "Agregar a tus favoritos"
+
+msgid "user"
+msgstr "Usuario"
+
+msgid "refill"
+msgstr "Recargar"
+
+msgid "refilldelay"
+msgstr "Solo puedes recargar una vez cada 24 horas."
+
+msgid "factdueldesc"
+msgstr "Determina la mejor carta única entre dos cartas de la misma facción."
+
+msgid "chardueldesc"
+msgstr "Determina la mejor carta única entre dos cartas del mismo personaje."
+
+msgid "randdueldesc"
+msgstr "Determina la mejor carta única entre dos cartas aleatorias."
+
+msgid "lastrefill"
+msgstr "Última recarga"
+
+msgid "see rare"
+msgstr "Ver la versión rara."
+
+msgid "draw"
+msgstr "Empate"
+
+msgid "lastduel"
+msgstr "Duelo anterior"
+
+msgid "legalnotice"
+msgstr "Aviso legal"
+
+msgid "contact"
+msgstr "Contacto"
+
+msgid "termsofuse"
+msgstr "Términos de uso"
+
+msgid "rememberme"
+msgstr "Recuérdame"
+
+msgid "disclaimer"
+msgstr "Las calificaciones presentadas en este sitio pueden sufrir a veces de sesgos debido a su naturaleza comunitaria. Por favor, no las utilices como argumento de venta.<br>Si eres testigo de tal uso de este sitio, por favor, comunique este descargo de responsabilidad."
+
+msgid "users"
+msgstr "Usuarios"
+
+msgid "credit"
+msgstr "Concepto de Tristan (Ilad) con la contribución de Nathan ([SBTFU] Naka)"
+
+msgid "filterhidden"
+msgstr "Filtro de Actividad"
+
+msgid "Actives"
+msgstr "Activas"
+
+msgid "Toutes"
+msgstr "Todas"

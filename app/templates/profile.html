@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% block title %}{{ _('profile') }}{% endblock %}
+{% block content %}
+<div class="row-justify-content-center title">
+    <i id="usericon2" class="fa-solid fa-user"></i> {{ current_user.username }}
+</div>
+<div class="page-content">
+
+    <div class="flex-row-div profilecounters">
+        <div>
+            {{_('charduel')}} : <span class="profilecountervalue">{{ charduels }}</span>
+        </div>
+        <div>
+            {{_('factduel')}} : <span class="profilecountervalue">{{ factduels }}</span>
+        </div>
+        <div>
+            {{_('randduel')}} : <span class="profilecountervalue">{{ randduels }}</span>
+        </div>
+    </div>
+    <div class="ladder-container">
+        <table class="stat-table">
+            <thead>
+                <tr>
+                    <th>
+                        {{ _('faction') }}
+                    </th>
+                    <th>
+                        {{ _('character') }}
+                    </th>
+                    <th>
+                        Elo
+                    </th>
+                    <th>
+                        {{ _('totalduels') }}
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for card in cards %}
+                <tr>
+                    <td>{{ card.faction }}</td>
+                    <td><a href="{{ url_for('cardview', card_ref=card.reference) }}"><img src="{% if get_locale() == 'fr' %}{{ card.url_fr_fr }}{% elif get_locale() == 'it' %}{{ card.url_it_it }}{% elif get_locale() == 'es' %}{{ card.url_es_es }}{% elif get_locale() == 'de' %}{{ card.url_de_de }}{% elif get_locale() == 'en' %}{{ card.url_en_us }}{% endif %}" alt="{% if get_locale() == 'fr' %}{{ card.character_fr_fr }}{% elif get_locale() == 'it' %}{{ card.character_it_it }}{% elif get_locale() == 'es' %}{{ card.character_es_es }}{% elif get_locale() == 'de' %}{{ card.character_de_de }}{% elif get_locale() == 'en' %}{{ card.character_en_us }}{% endif %}" class="hidden-card load-img" url-en="{{card.url_en_us}}" onerror="this.onerror=null;this.src='{{ card.url_en_us }}';">
+                        {% if card.hide == 1 %}<span>{% endif %}
+                        {% if get_locale() == 'fr' %}
+                            {{ card.character_fr_fr }}
+                        {% elif get_locale() == 'it' %}
+                            {{ card.character_it_it }}
+                        {% elif get_locale() == 'es' %}
+                            {{ card.character_es_es }}
+                        {% elif get_locale() == 'de' %}
+                            {{ card.character_de_de }}
+                        {% elif get_locale() == 'en' %}
+                            {{ card.character_en_us }}
+                        {% endif %}
+                        #{{ card.num }}
+                        {% if card.hide == 1 %}</span>{% endif %}
+                    </a></td>
+                    <td>{{ card.elo | round(1) }}</td>
+                    <td>{{ card.nb_duel }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="pagination-nav">
+            <ul class="pagination">
+                {% if page > 1 %}
+                    <li><a href="/profile?page={{ page-1 }}{% if request.args.get('sort_by', None) %}&sort_by={{ request.args.get('sort_by', '') }}{% endif %}{% if request.args.get('sort_order', None) %}&sort_order={{ request.args.get('sort_order', '') }}{% endif %}" class="secondary-btn">{{_('previous')}}</a></li>
+                {% endif %}
+                <li><span class="pagination-info">Page {{ page }} / {{ max_pages }}</span></li>
+                {% if max_pages > page %}
+                    <li><a href="/profile?page={{ page+1 }}{% if request.args.get('sort_by', None) %}&sort_by={{ request.args.get('sort_by', '') }}{% endif %}{% if request.args.get('sort_order', None) %}&sort_order={{ request.args.get('sort_order', '') }}{% endif %}" class="secondary-btn">{{_('next')}}</a></li>
+                {% endif %}
+            </ul>
+        </div>
+        <p class="stat-disclaimer">{{ _('canbefav')}}</p>
+    </div>
+
+</div>
+<script>
+    if (window.location.pathname === '/profile') {
+        document.body.style.backgroundPositionY = '90%';
+        document.body.style.backgroundPositionX = '74%';
+    }
+</script>
+{% endblock %}

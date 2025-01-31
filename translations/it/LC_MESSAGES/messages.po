@@ -1,0 +1,222 @@
+msgid ""
+msgstr ""
+"Language: it\n"
+
+msgid "username"
+msgstr "Nome utente"
+
+msgid "email"
+msgstr "Email"
+
+msgid "password"
+msgstr "Password"
+
+msgid "repeatpassword"
+msgstr "Password (conferma)"
+
+msgid "register"
+msgstr "Registrati"
+
+msgid "login"
+msgstr "Accedi"
+
+msgid "regsuccess"
+msgstr "Account creato con successo."
+
+msgid "regnameerror"
+msgstr "Nome utente non disponibile."
+
+msgid "regpasserror"
+msgstr "Password errata."
+
+msgid "logpasserror"
+msgstr "Password errata."
+
+msgid "logemailerror"
+msgstr "Nome utente errato."
+
+msgid "logout"
+msgstr "Esci"
+
+msgid "duel"
+msgstr "Duel"
+
+msgid "ladder"
+msgstr "Classifica"
+
+msgid "globalstat"
+msgstr "Statistiche"
+
+msgid "addcards"
+msgstr "Aggiungi una carta"
+
+msgid "mycards"
+msgstr "Le mie carte"
+
+msgid "rightmsg"
+msgstr "Qualsiasi informazione presente su questo sito riguardo Altered, sia letterale che grafica, è di proprietà di Equinox. Questo sito non è prodotto, supportato o affiliato con Equinox."
+
+msgid "welcome"
+msgstr "Benvenuto"
+
+msgid "uniquescounter"
+msgstr "Uniche aggiunte"
+
+msgid "duelscounter"
+msgstr "Duel giocati"
+
+msgid "duels"
+msgstr "Duel"
+
+msgid "findref"
+msgstr "Dove trovare il riferimento della tua carta?"
+
+msgid "copyref"
+msgstr "Copia qui il riferimento della tua unica"
+
+msgid "alreadyavailable"
+msgstr " è già disponibile."
+
+msgid "newcard"
+msgstr " aggiunta."
+
+msgid "cardnotfound"
+msgstr "Carta non trovata, verifica se è pubblica.\nPer rendere una carta pubblica, devi aggiungerla alla lista di scambio.\nUna volta aggiunta qui, puoi rimuovere la carta dalla tua lista di scambio se lo desideri."
+
+msgid "wrongref"
+msgstr "Questo riferimento non segue il formato corretto."
+
+msgid "sort"
+msgstr "Ordina"
+
+msgid "bestrankings"
+msgstr "Classifica delle migliori"
+
+msgid "worstrankings"
+msgstr "Classifica delle peggiori"
+
+msgid "filterfaction"
+msgstr "Filtro fazione"
+
+msgid "all"
+msgstr "Tutte"
+
+msgid "filterchar"
+msgstr "Filtro personaggio"
+
+msgid "nofilter"
+msgstr "Nessun filtro"
+
+msgid "rank"
+msgstr "Posizione"
+
+msgid "character"
+msgstr "Personaggio"
+
+msgid "faction"
+msgstr "Fazione"
+
+msgid "previous"
+msgstr "Precedente"
+
+msgid "next"
+msgstr "Successivo"
+
+msgid "resetsorting"
+msgstr "Annulla Ordinamento"
+
+msgid "average elo"
+msgstr "Elo Medio"
+
+msgid "highest elo"
+msgstr "Miglior Elo"
+
+msgid "lowest elo"
+msgstr "Peggior Elo"
+
+msgid "totalcards"
+msgstr "Carte"
+
+msgid "totalduels"
+msgstr "Duelli"
+
+msgid "5duelmin"
+msgstr "Nelle statistiche sono incluse solo le carte che hanno disputato più di cinque duelli."
+
+msgid "charduel"
+msgstr "Duello di Personaggi"
+
+msgid "factduel"
+msgstr "Duello di Fazione"
+
+msgid "randduel"
+msgstr "Duello Casuale"
+
+msgid "canbefav"
+msgstr "Puoi aggiungere carte al tuo profilo dalla pagina di ogni carta. Quelle che aggiungi vengono salvate automaticamente nel tuo profilo."
+
+msgid "removefromfav"
+msgstr "Rimuovi dai preferiti"
+
+msgid "addtofav"
+msgstr "Aggiungi ai preferiti"
+
+msgid "user"
+msgstr "Utente"
+
+msgid "refill"
+msgstr "Ricaricare"
+
+msgid "refilldelay"
+msgstr "Puoi ricaricare solo una volta ogni 24 ore."
+
+msgid "factdueldesc"
+msgstr "Determina la migliore carta unica tra due carte della stessa fazione."
+
+msgid "chardueldesc"
+msgstr "Determina la migliore carta unica tra due carte dello stesso personaggio."
+
+msgid "randdueldesc"
+msgstr "Determina la migliore carta unica tra due carte casuali."
+
+msgid "lastrefill"
+msgstr "Ultima ricarica"
+
+msgid "see rare"
+msgstr "Vedi la versione rara."
+
+msgid "draw"
+msgstr "Pareggio"
+
+msgid "lastduel"
+msgstr "Duel precedente"
+
+msgid "legalnotice"
+msgstr "Note legali"
+
+msgid "contact"
+msgstr "Contatto"
+
+msgid "termsofuse"
+msgstr "Condizioni d'uso"
+
+msgid "rememberme"
+msgstr "Ricordami"
+
+msgid "disclaimer"
+msgstr "I punteggi presentati su questo sito possono a volte soffrire di pregiudizi a causa della loro natura comunitaria. Si prega di non usarli come argomento di vendita.<br>Se si assiste a un tale utilizzo di questo sito, si prega di comunicare questa dichiarazione di non responsabilità."
+
+msgid "users"
+msgstr "Utenti"
+
+msgid "credit"
+msgstr "Concetto di Tristan (Ilad) con il contributo di Nathan ([SBTFU] Naka)"
+
+msgid "filterhidden"
+msgstr "Filtro di Attività"
+
+msgid "Actives"
+msgstr "Attive"
+
+msgid "Toutes"
+msgstr "Tutte"

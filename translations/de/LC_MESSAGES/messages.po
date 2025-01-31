@@ -1,0 +1,222 @@
+msgid ""
+msgstr ""
+"Language: de\n"
+
+msgid "username"
+msgstr "Benutzername"
+
+msgid "email"
+msgstr "E-Mail"
+
+msgid "password"
+msgstr "Passwort"
+
+msgid "repeatpassword"
+msgstr "Passwort (Bestätigung)"
+
+msgid "register"
+msgstr "Registrieren"
+
+msgid "login"
+msgstr "Einloggen"
+
+msgid "regsuccess"
+msgstr "Konto erfolgreich erstellt."
+
+msgid "regnameerror"
+msgstr "Benutzername nicht verfügbar."
+
+msgid "regpasserror"
+msgstr "Falsches Passwort."
+
+msgid "logpasserror"
+msgstr "Falsches Passwort."
+
+msgid "logemailerror"
+msgstr "Falscher Benutzername."
+
+msgid "logout"
+msgstr "Ausloggen"
+
+msgid "duel"
+msgstr "Duell"
+
+msgid "ladder"
+msgstr "Rangliste"
+
+msgid "globalstat"
+msgstr "Statistiken"
+
+msgid "addcards"
+msgstr "Karte hinzufügen"
+
+msgid "mycards"
+msgstr "Meine Karten"
+
+msgid "rightmsg"
+msgstr "Alle Informationen auf dieser Seite über Altered, ob wörtlich oder grafisch, sind Eigentum von Equinox. Diese Seite wird nicht produziert, unterstützt oder ist mit Equinox verbunden."
+
+msgid "welcome"
+msgstr "Willkommen"
+
+msgid "uniquescounter"
+msgstr "Hinzugefügte Einzigartige"
+
+msgid "duelscounter"
+msgstr "Gespielte Duelle"
+
+msgid "duels"
+msgstr "Duelle"
+
+msgid "findref"
+msgstr "Wo findest du die Referenz deiner Karte?"
+
+msgid "copyref"
+msgstr "Kopiere die Referenz deiner Einzigartigen hier"
+
+msgid "alreadyavailable"
+msgstr " ist bereits verfügbar."
+
+msgid "newcard"
+msgstr " hinzugefügt."
+
+msgid "cardnotfound"
+msgstr "Karte nicht gefunden, überprüfe, ob sie öffentlich ist.\nUm eine Karte öffentlich zu machen, muss sie zur Tauschliste hinzugefügt werden.\nSobald sie hier hinzugefügt ist, kannst du die Karte aus deiner Tauschliste entfernen, wenn du möchtest."
+
+msgid "wrongref"
+msgstr "Diese Referenz entspricht nicht dem richtigen Format."
+
+msgid "sort"
+msgstr "Sortieren"
+
+msgid "bestrankings"
+msgstr "Beste Bewertungen"
+
+msgid "worstrankings"
+msgstr "Schlechteste Bewertungen"
+
+msgid "filterfaction"
+msgstr "Fraktionsfilter"
+
+msgid "all"
+msgstr "Alle"
+
+msgid "filterchar"
+msgstr "Charakterfilter"
+
+msgid "nofilter"
+msgstr "Kein Filter"
+
+msgid "rank"
+msgstr "Rang"
+
+msgid "character"
+msgstr "Charakter"
+
+msgid "faction"
+msgstr "Fraktion"
+
+msgid "previous"
+msgstr "Zurück"
+
+msgid "next"
+msgstr "Weiter"
+
+msgid "resetsorting"
+msgstr "Sortierung zurücksetzen"
+
+msgid "average elo"
+msgstr "Durchschnittliches Elo"
+
+msgid "highest elo"
+msgstr "Höchstes Elo"
+
+msgid "lowest elo"
+msgstr "Niedrigstes Elo"
+
+msgid "totalcards"
+msgstr "Karten"
+
+msgid "totalduels"
+msgstr "Duelle"
+
+msgid "5duelmin"
+msgstr "Nur Karten mit mehr als fünf gespielten Duellen werden in diese Statistiken einbezogen."
+
+msgid "charduel"
+msgstr "Charakterduell"
+
+msgid "factduel"
+msgstr "Fraktionsduell"
+
+msgid "randduel"
+msgstr "Zufallsduell"
+
+msgid "canbefav"
+msgstr "Sie können Karten von der Seite jeder Karte zu Ihrem Profil hinzufügen. Die hinzugefügten Karten werden automatisch in Ihrem Profil gespeichert."
+
+msgid "removefromfav"
+msgstr "Aus Favoriten entfernen"
+
+msgid "addtofav"
+msgstr "Zu Favoriten hinzufügen"
+
+msgid "user"
+msgstr "Benutzer"
+
+msgid "refill"
+msgstr "Nachfüllen"
+
+msgid "refilldelay"
+msgstr "Sie können nur alle 24 Stunden nachfüllen."
+
+msgid "factdueldesc"
+msgstr "Bestimmen Sie die beste einzigartige Karte aus zwei Karten derselben Fraktion."
+
+msgid "chardueldesc"
+msgstr "Bestimmen Sie die beste einzigartige Karte aus zwei Karten desselben Charakters."
+
+msgid "randdueldesc"
+msgstr "Bestimmen Sie die beste einzigartige Karte aus zwei zufälligen Karten."
+
+msgid "lastrefill"
+msgstr "Letzte Auffüllung"
+
+msgid "see rare"
+msgstr "Seltene Version anzeigen."
+
+msgid "draw"
+msgstr "Unentschieden"
+
+msgid "lastduel"
+msgstr "Vorheriger Kampf"
+
+msgid "legalnotice"
+msgstr "Impressum"
+
+msgid "contact"
+msgstr "Kontakt"
+
+msgid "termsofuse"
+msgstr "Nutzungsbedingungen"
+
+msgid "rememberme"
+msgstr "Angemeldet bleiben"
+
+msgid "disclaimer"
+msgstr "Die auf dieser Website dargestellten Bewertungen können aufgrund ihres gemeinschaftlichen Charakters gelegentlich voreingenommen sein. Bitte verwenden Sie sie nicht als Verkaufsargument.<br>Wenn Sie eine solche Nutzung dieser Website beobachten, teilen Sie bitte diesen Hinweis mit."
+
+msgid "users"
+msgstr "Benutzer"
+
+msgid "credit"
+msgstr "Konzept von Tristan (Ilad) mit dem Beitrag von Nathan ([SBTFU] Naka)"
+
+msgid "filterhidden"
+msgstr "Aktivitätsfilter"
+
+msgid "Actives"
+msgstr "Aktiv"
+
+msgid "Toutes"
+msgstr "Alle"

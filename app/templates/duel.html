@@ -1,0 +1,221 @@
+{% extends 'base.html' %}
+
+{% block title %}Duel{% endblock %}
+
+{% block content %}
+
+
+<div class="page-content" style="padding-top:10px;">
+
+  <div class="last-duel">
+    {% if last_duel %}
+      <div class="duel-instruction">{{_('lastduel')}}</div>
+      
+      <div class="last-duel-cards">
+        <div class="last-duel-card">
+          <div class="last-duel-img">
+            <img src="{{ last_duel.url_left }}">
+          </div>
+          <div class="last-duel-desc">
+            <a href="{{ url_for('cardview', card_ref=last_duel.ref_left) }}" class="cardlink">{{ last_duel.character_left }}</a>
+            <div>
+              {{ (last_duel.elo_left - last_duel.delta_left) | round(1)}}➜<span style="{% if last_duel.delta_left > 0 %}color: green;{% else %} color: red;{% endif %}">{{last_duel.elo_left | round(1)}}</span> ({{ last_duel.played_left - 1}}➜{{ last_duel.played_left }})
+            </div>
+          </div>
+        </div>
+
+        <div class="last-duel-card">
+          <div class="last-duel-img">
+            <img src="{{ last_duel.url_right }}">
+          </div>
+          <div class="last-duel-desc">
+            <a href="{{ url_for('cardview', card_ref=last_duel.ref_right) }}" class="cardlink">{{ last_duel.character_right }}</a>
+            <div>
+              {{ (last_duel.elo_right - last_duel.delta_right) | round(1)}}➜<span style="{% if last_duel.delta_right > 0 %}color: green;{% else %} color: red;{% endif %}">{{last_duel.elo_right | round(1)}}</span> ({{ last_duel.played_right - 1}}➜{{ last_duel.played_right }})
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+
+    {% if action == "/duel_fact" %}
+        <div class="row-justify-content-center title">
+          {{ _('factduel') }} 
+        </div>
+        <div class="row-justify-content-center desc">
+          {{ _('factdueldesc') }}
+        </div>
+        {% if current_user.is_authenticated %}
+         {{ max_fact - played_fact }} / {{ max_fact }}
+        {% endif %}
+    </a></li>
+    {% endif %}
+    {% if action == "/duel_char" %}
+        <div class="row-justify-content-center title">
+          {{ _('charduel') }} 
+        </div>
+        <div class="row-justify-content-center desc">
+          {{ _('chardueldesc') }}
+        </div>
+        {% if current_user.is_authenticated %}
+        {{ max_char - played_char }} / {{ max_char }}
+        {% endif %}
+    {% endif %}
+    {% if action == "/duel_rand" %}
+        <div class="row-justify-content-center title">
+          {{ _('randduel') }} 
+        </div>
+        <div class="row-justify-content-center desc">
+          {{ _('randdueldesc') }}
+        </div>
+        {% if current_user.is_authenticated %}
+         {{ max_rand - played_rand }} / {{ max_rand }}
+        {% endif %}
+    </a></li>
+    {% endif %}
+    {% if action == "/duel_mass" %}
+    <div class="row-justify-content-center title">
+      {{ _('') }} 
+    </div>
+    <div class="row-justify-content-center desc">
+      {{ _('') }}
+    </div>
+    {% if current_user.is_authenticated %}
+     {{ max_mass - played_mass }} / {{ max_mass }}
+    {% endif %}
+</a></li>
+{% endif %}
+
+    <form action="{{ action }}" method="post" id="duel-form" style="margin-top:20px;">
+      <input type="hidden" name="choice" id="choice">
+      <div class="duel-container">
+          <div class="card-wrapper">
+               <div class="card-img-wrapper">
+                  <img src="{% if get_locale() == 'fr' %}{{ card_left.url_fr_fr }}{% elif get_locale() == 'en' %}{{ card_left.url_en_us }}{% elif get_locale() == 'es' %}{{ card_left.url_es_es }}{% elif get_locale() == 'it' %}{{ card_left.url_it_it }}{% elif get_locale() == 'de' %}{{ card_left.url_de_de }}{% endif %}" id="card-left" url-en="{{card_left.url_en_us}}" class="card-img load-img" onerror="this.onerror=null;this.src='{{ card_left.url_en_us }}';">
+                </div>
+                <div  class="row-justify-content-center">
+                  <div id="open-popup-left" class="rare-link">
+                    <div class="row-justify-content-center voirrare" style="padding: 0; margin-top: -24px;">
+                      <a target="_blank">{{_('see rare')}}</a>
+                    </div>
+                    <div class="row-justify-content-center" style="padding: 0; padding-top:2px">
+                      <img src="{{url_for('serve_image', filename = 'RARITY_GEM_RARE.png')}}" class="imgrarelogo">
+                    </div>
+                 </div>
+               </div>
+          </div>
+          <div class="card-wrapper mobilespace">
+              <div class="card-img-wrapper">
+                  <img src="{% if get_locale() == 'fr' %}{{ card_right.url_fr_fr }}{% elif get_locale() == 'en' %}{{ card_right.url_en_us }}{% elif get_locale() == 'es' %}{{ card_right.url_es_es }}{% elif get_locale() == 'it' %}{{ card_right.url_it_it }}{% elif get_locale() == 'de' %}{{ card_right.url_de_de }}{% endif %}" id="card-right" url-en="{{card_right.url_en_us}}" class="card-img load-img" onerror="this.onerror=null;this.src='{{ card_right.url_en_us }}';">
+              </div>
+              <div  class="row-justify-content-center">
+                  <div id="open-popup-right" class="rare-link">
+                    <div class="row-justify-content-center voirrare" style="padding: 0; margin-top: -24px;">
+                        <a target="_blank">{{_('see rare')}}</a>
+                    </div>
+                    <div class="row-justify-content-center" style="padding: 0; padding-top:2px">
+                      <img src="{{url_for('serve_image', filename = 'RARITY_GEM_RARE.png')}}" class="imgrarelogo">
+                    </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="duel-button">
+        <button type="submit" id="draw-button" class="primary-btn">{{ _('draw') }}</button>
+      </div>
+    </form>
+    <div id="overlay"></div>
+    <!-- Popup contenant l'iframe -->
+    <div id="popup">
+        <span id="close-btn">X</span>
+        <iframe id="iframe-content" src=""></iframe>
+    </div>
+</div>
+<div id="space">
+</div>
+
+<script>
+    const card_left_rare_url = "{{card_left_rare_url}}";
+    const card_right_rare_url = "{{card_right_rare_url}}";
+    const popup = document.getElementById("popup");
+    const iframe = document.getElementById("iframe-content");
+    const overlay = document.getElementById("overlay");
+    const openPopupBtnLeft = document.getElementById("open-popup-left");
+    const openPopupBtnRight = document.getElementById("open-popup-right");
+    const closeBtn = document.getElementById("close-btn");
+
+     // Fonction pour ouvrir la popup left
+     openPopupBtnLeft.addEventListener("click", () => {
+        iframe.src = card_left_rare_url; // Définir l'URL de l'iframe à partir de la variable JS
+        popup.style.display = "block";
+        overlay.style.display = "block";
+    });
+
+      // Fonction pour ouvrir la popup right
+      openPopupBtnRight.addEventListener("click", () => {
+        iframe.src = card_right_rare_url; // Définir l'URL de l'iframe à partir de la variable JS
+        popup.style.display = "block";
+        overlay.style.display = "block";
+    });
+
+    // Fonction pour fermer la popup
+    closeBtn.addEventListener("click", () => {
+        popup.style.display = "none";
+        overlay.style.display = "none";
+        iframe.src = ""; // Réinitialiser l'URL de l'iframe pour éviter le chargement continu
+    });
+
+    // Fermer la popup si on clique sur l'overlay
+    overlay.addEventListener("click", () => {
+        popup.style.display = "none";
+        overlay.style.display = "none";
+        iframe.src = "";
+    });
+
+
+    document.getElementById('card-left').addEventListener('click', function() {
+      document.getElementById('choice').value = "1";
+      document.getElementById('duel-form').submit();
+    });
+  
+    document.getElementById('card-right').addEventListener('click', function() {
+      document.getElementById('choice').value = "2";
+      document.getElementById('duel-form').submit();
+    });
+  
+    document.getElementById('draw-button').addEventListener('click', function() {
+      document.getElementById('choice').value = "0";
+      document.getElementById('duel-form').submit();
+    });
+
+    function apply3DEffect(cardElement) {
+    cardElement.addEventListener('mousemove', (e) => {
+        const rect = cardElement.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = (y - centerY) / centerY * 15; // Ajustez les valeurs pour plus ou moins d'inclinaison
+        const rotateY = (x - centerX) / centerX * -15;
+
+        // Ajout de la transformation 3D avec l'ombre
+        cardElement.querySelector('.card-img').style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        cardElement.querySelector('.card-img').style.boxShadow = '0 0 15px rgba(0, 0, 0, 0.7)'; // Ajoute l'ombre pendant l'effet 3D
+    });
+
+    cardElement.addEventListener('mouseleave', () => {
+        // Réinitialise la transformation mais garde l'ombre
+        cardElement.querySelector('.card-img').style.transform = 'rotateX(0) rotateY(0)';
+        cardElement.querySelector('.card-img').style.boxShadow = '0 0 15px rgba(0, 0, 0, 0.7)'; // L'ombre reste après que l'effet soit fini
+    });
+}
+
+// Appliquer l'effet sur les deux cartes
+const cardWrappers = document.querySelectorAll('.card-img-wrapper');
+cardWrappers.forEach(apply3DEffect);
+
+
+</script>
+  {% endblock %}
