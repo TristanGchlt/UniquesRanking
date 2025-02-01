@@ -1,5 +1,6 @@
 # UniquesRanking
 
+Actuellement hébergé sur https://uniquesranking.com/
 
 ## Présentation de Uniques Ranking
 
