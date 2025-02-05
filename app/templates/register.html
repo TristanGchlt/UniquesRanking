@@ -12,9 +12,9 @@
       </div>
       <form method="POST" style="border-bottom:1px solid grey;padding-bottom:10px;">
         {{ log_form.hidden_tag() }}
-        {{ log_form.username.label }} {{ log_form.username(size=32) }}<br>
-        {{ log_form.password.label }} {{ log_form.password(size=64) }}<br>
-        {{ log_form.remember_me.label }} {{ log_form.remember_me }}<br>
+        {{_('username')}} {{ log_form.username(size=32) }}<br>
+        {{_('password')}} {{ log_form.password(size=64) }}<br>
+        {{ log_form.remember_me }} {{_('rememberme')}}<br>
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
                     {% for category, message in messages %}
@@ -25,7 +25,7 @@
             {% endif %}
         {% endwith %}
         <div class="row-justify-content-center">
-        <button style="width: auto;" type="submit" name="form_type" value="login" class="primary-btn">Log in</button>
+        <button style="width: auto;" type="submit" name="form_type" value="login" class="primary-btn">{{_('login')}}</button>
         </div>
       </form>
     </div>
@@ -35,9 +35,9 @@
       </div>
       <form method="POST">
         {{ reg_form.hidden_tag() }}
-        {{ reg_form.username.label }} {{ reg_form.username(size=32) }}<br>
-        {{ reg_form.password.label }} {{ reg_form.password(size=64) }}<br>
-        {{ reg_form.password2.label }} {{ reg_form.password2(size=64) }}<br>
+        {{_('username')}} {{ reg_form.username(size=32) }}<br>
+        {{_('password')}} {{ reg_form.password(size=64) }}<br>
+        {{_('repeatpassword')}} {{ reg_form.password2(size=64) }}<br>
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
                     {% for category, message in messages %}
@@ -48,7 +48,7 @@
             {% endif %}
         {% endwith %}
         <div class="row-justify-content-center">
-           <button style="width: auto;" type="submit" name="form_type" value="register" class="primary-btn">Register</button>
+           <button style="width: auto;" type="submit" name="form_type" value="register" class="primary-btn">{{_('register')}}</button>
          </div>
       </form>
     </div>
