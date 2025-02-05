@@ -109,11 +109,11 @@
         <div class="pagination-nav">
             <ul class="pagination">
                 {% if pagination.has_prev %}
-                    <li><a href="/ladder?page={{ pagination.prev_num }}{% if request.args.get('sort', None) %}&sort={{ request.args.get('sort', '') }}{% endif %}{% if request.args.get('faction', None) %}&faction={{ request.args.get('faction', '') }}{% endif %}{% if selected_character %}&character={{ request.args.get('character', '') }}{% endif %}" class="secondary-btn">{{_('previous')}}</a></li>
+                    <li><a href="/ladder?page={{ pagination.prev_num }}{% if request.args.get('sort', None) %}&sort={{ request.args.get('sort', '') }}{% endif %}{% if request.args.get('faction', None) %}&faction={{ request.args.get('faction', '') }}{% endif %}{% if selected_character %}&character={{ request.args.get('character', '') }}{% endif %}{% if request.args.get('cardset', None) %}&cardset={{ request.args.get('cardset', '') }}{% endif %}" class="secondary-btn">{{_('previous')}}</a></li>
                 {% endif %}
                 <li><span class="pagination-info">Page {{ pagination.page }} / {{ pagination.pages }}</span></li>
                 {% if pagination.has_next %}
-                    <li><a href="/ladder?page={{ pagination.next_num }}{% if request.args.get('sort', None) %}&sort={{ request.args.get('sort', '') }}{% endif %}{% if request.args.get('faction', None) %}&faction={{ request.args.get('faction', '') }}{% endif %}{% if selected_character %}&character={{ request.args.get('character', '') }}{% endif %}" class="secondary-btn">{{_('next')}}</a></li>
+                    <li><a href="/ladder?page={{ pagination.next_num }}{% if request.args.get('sort', None) %}&sort={{ request.args.get('sort', '') }}{% endif %}{% if request.args.get('faction', None) %}&faction={{ request.args.get('faction', '') }}{% endif %}{% if selected_character %}&character={{ request.args.get('character', '') }}{% endif %}{% if request.args.get('cardset', None) %}&cardset={{ request.args.get('cardset', '') }}{% endif %}" class="secondary-btn">{{_('next')}}</a></li>
                 {% endif %}
             </ul>
         </div>
