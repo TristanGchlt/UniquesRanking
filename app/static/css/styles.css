@@ -472,7 +472,7 @@ form button {
     width: 100%;
 }
 
-.sort-menu, .hidden-filter-menu, .faction-filter-menu, .char-filter-menu {
+.sort-menu, .hidden-filter-menu, .faction-filter-menu, .char-filter-menu, .set-filter-menu {
     background-color: var(--light-color);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 6px 12px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
@@ -482,7 +482,7 @@ form button {
     padding: 10px;
 }
 
-.sort-menu, .hidden-filter-menu, .faction-filter-menu {
+.set-filter-menu, .sort-menu, .hidden-filter-menu, .faction-filter-menu {
     flex: 1;
 }
 

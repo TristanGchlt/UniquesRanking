@@ -26,6 +26,16 @@
                 </select>
             </div>
         </div>
+        <div class="set-filter-menu">
+            <h3 class="filter-title">{{_('filterset')}}</h3>
+            <div class="select-wrapper">
+                <select id="set-filter" class="form-control custom-select" onchange="filterBySet()">
+                    <option value="" {% if not request.args.get('cardset') %}selected{% endif %}>{{_('all')}}</option>
+                    <option value="BTG" {% if request.args.get('cardset') == 'BTG' %}selected{% endif %}>BTG (set 1)</option>
+                    <option value="TBF" {% if request.args.get('cardset') == 'TBF' %}selected{% endif %}>TBF (set 2)</option>
+                </select>
+            </div>
+        </div>
         <div class="faction-filter-menu">
             <h3 class="filter-title">{{_('filterfaction')}}</h3>
             <div class="select-wrapper">
@@ -114,93 +124,96 @@
     function filterBySort() {
         var sort = document.getElementById('sort-filter').value;
         var currentUrl = new URL(window.location.href);
-        var faction = currentUrl.searchParams.get('faction');
-        var character = currentUrl.searchParams.get('character');
-
+        // var faction = currentUrl.searchParams.get('faction');
+        // var character = currentUrl.searchParams.get('character');
         currentUrl.searchParams.set('sort', sort);
-
-        if (faction) {
-            currentUrl.searchParams.set('faction', faction);
-        }
-
-        if (character) {
-            currentUrl.searchParams.set('character', character);
-        }
-
+        // if (faction) {
+        //     currentUrl.searchParams.set('faction', faction);
+        // }
+        // if (character) {
+        //     currentUrl.searchParams.set('character', character);
+        // }
         currentUrl.searchParams.set('page', '1');
         window.location.href = currentUrl.toString();
     }
-
     function filterByFaction() {
         var faction = document.getElementById('faction-filter').value;
         var currentUrl = new URL(window.location.href);
-        var sort = currentUrl.searchParams.get('sort');
-        var character = currentUrl.searchParams.get('character');
-
+        // var sort = currentUrl.searchParams.get('sort');
+        // var character = currentUrl.searchParams.get('character');
         if (faction === "") {
             currentUrl.searchParams.delete('faction');
         } else {
             currentUrl.searchParams.set('faction', faction);
         }
-
-        if (sort) {
-            currentUrl.searchParams.set('sort', sort);
-        }
-
-        if (character) {
-            currentUrl.searchParams.set('character', character);
-        }
-
+        // if (sort) {
+        //     currentUrl.searchParams.set('sort', sort);
+        // }
+        // if (character) {
+        //     currentUrl.searchParams.set('character', character);
+        // }
         currentUrl.searchParams.set('page', '1');
         window.location.href = currentUrl.toString();
     }
-
     function filterByCharacter() {
         var character = document.getElementById('card-name-filter').value;
         var currentUrl = new URL(window.location.href);
-        var sort = currentUrl.searchParams.get('sort');
-        var faction = currentUrl.searchParams.get('faction');
-
+        // var sort = currentUrl.searchParams.get('sort');
+        // var faction = currentUrl.searchParams.get('faction');
         if (character === 'No filter') {
             currentUrl.searchParams.delete('character');
         } else {
             currentUrl.searchParams.set('character', character);
         }
-
-        if (sort) {
-            currentUrl.searchParams.set('sort', sort);
-        }
-
-        if (faction) {
-            currentUrl.searchParams.set('faction', faction);
-        }
-
+        // if (sort) {
+        //     currentUrl.searchParams.set('sort', sort);
+        // }
+        // if (faction) {
+        //     currentUrl.searchParams.set('faction', faction);
+        // }
+        currentUrl.searchParams.set('page', '1');
+        window.location.href = currentUrl.toString();
+    }
+    function filterByHidden() {
+        var hidden = document.getElementById('hidden-filter').value;
+        var currentUrl = new URL(window.location.href);
+        // var sort = currentUrl.searchParams.get('sort');
+        // var faction = currentUrl.searchParams.get('faction');
+        // var character = currentUrl.searchParams.get('character');
+        currentUrl.searchParams.set('hidden', hidden);
+        // if (sort) {
+        //     currentUrl.searchParams.set('sort', sort);
+        // }
+        // if (faction) {
+        //     currentUrl.searchParams.set('faction', faction);
+        // }
+        // if (character) {
+        //     currentUrl.searchParams.set('character', character);
+        // }
         currentUrl.searchParams.set('page', '1');
         window.location.href = currentUrl.toString();
     }
 
-
-    function filterByHidden() {
-        var hidden = document.getElementById('hidden-filter').value;
+    function filterBySet() {
+        var cardset = document.getElementById('set-filter').value;
         var currentUrl = new URL(window.location.href);
-        var sort = currentUrl.searchParams.get('sort');
-        var faction = currentUrl.searchParams.get('faction');
-        var character = currentUrl.searchParams.get('character');
-
-        currentUrl.searchParams.set('hidden', hidden);
-
-        if (sort) {
-            currentUrl.searchParams.set('sort', sort);
+        // var sort = currentUrl.searchParams.get('sort');
+        // var faction = currentUrl.searchParams.get('faction');
+        // var character = currentUrl.searchParams.get('character');
+        if (cardset === "") {
+            currentUrl.searchParams.delete('cardset');
+        } else {
+            currentUrl.searchParams.set('cardset', cardset);
         }
-
-        if (faction) {
-            currentUrl.searchParams.set('faction', faction);
-        }
-
-        if (character) {
-            currentUrl.searchParams.set('character', character);
-        }
-
+        // if (sort) {
+        //     currentUrl.searchParams.set('sort', sort);
+        // }
+        // if (faction) {
+        //     currentUrl.searchParams.set('faction', faction);
+        // }
+        // if (character) {
+        //     currentUrl.searchParams.set('character', character);
+        // }
         currentUrl.searchParams.set('page', '1');
         window.location.href = currentUrl.toString();
     }

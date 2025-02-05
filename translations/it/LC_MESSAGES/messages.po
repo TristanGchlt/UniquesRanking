@@ -220,3 +220,6 @@ msgstr "Attive"
 
 msgid "Toutes"
 msgstr "Tutte"
+
+msgid "filterset"
+msgstr "Filtro di Edizione"

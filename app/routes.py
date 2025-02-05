@@ -236,6 +236,7 @@ def ladder() :
     faction = request.args.get('faction')
     character = request.args.get('character')
     hidden = request.args.get('hidden', "False")
+    cardset = request.args.get('cardset')
     # Récupération de la liste des cartes correspondant au filtre
     if hidden == "True" :
         query = db.session.query(Card)
@@ -243,6 +244,10 @@ def ladder() :
         query = db.session.query(Card).filter(Card.hide==0)
     if faction :
         query = query.filter_by(faction=faction)
+    if cardset :
+        correspondance = {'TBF' : 'ALT_ALIZE',
+                          'BTG' : 'ALT_CORE'}
+        query = query.filter(Card.reference.startswith(correspondance[cardset]))
     lang = get_locale()
     if lang == 'fr' :
         all_characters = query.with_entities(Card.character_fr_fr).distinct().all()
