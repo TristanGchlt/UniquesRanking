@@ -7,6 +7,289 @@
    - {{ _('welcome') }} -
 </div>
 <div class="page-content">
+    {% if get_locale() == 'fr' %}
+        <div class="presentation">
+            <p>
+                Bienvenue sur <span style="color:#AB8000;font-weight:bold;">Uniques Ranking</span>, la plateforme où les joueurs évaluent et classent les cartes de jeu selon un système de score Elo dynamique.
+                <br>
+                <br>
+                🔸 Votez pour la carte la plus puissante dans chaque duel.
+                <br>
+                🔸 Contribuez à un classement évolutif basé sur les avis de la communauté.
+                <br>
+                🔸 Découvrez les cartes qui dominent le jeu !
+                <br>
+                <br>
+                Votre avis compte : participez dès maintenant et aidez-nous à créer le classement des cartes uniques Altered !<br>
+            </p>
+        </div>
+
+        <div class="presentation">
+            <p style="color:#AB8000;font-weight:bold;font-size:large;text-align:center">
+                Comment participer ?
+            </p>
+            <p>
+                <a href="{{ url_for('register') }}" style="color:#926e01">
+                    🔸 Crée ton compte.
+                </a>
+                <br>
+                <a href="{{ url_for('add_cards') }}" style="color:#926e01">
+                    🔸 Ajoute tes cartes uniques.
+                </a>
+                <br>
+                <a href="{{ url_for('duel_rand') }}" style="color:#926e01">
+                    🔸 Participe à des duels.
+                </a>
+                <br>
+                <a href="{{ url_for('ladder') }}" style="color:#926e01">
+                    🔸 Parcours de classement.
+                </a>
+            </p>
+        </div>
+        
+        <div class="presentation">
+            <p style="color:#AB8000;font-weight:bold;font-size:large;text-align:center">
+                Interpréter le score
+            </p>
+            <p>
+                🔸Nombre de duels
+                <br>
+                On considère que le score d'une unique est pertinent après que celle-ci a disputé au moins une vingtaine de duels.
+                <br>
+                🔸Hauteur du score
+                <br>
+                Actuellement, une unique ayant un score au-delà de 1150 peut être considérée comme très bonnes. A l'inverse, une unique ayant un score inférieur à 900 est généralement très faible.
+                <br>
+                🔸Précision du score
+                <br>
+                Le score reflète une tendance générale de la puissance de vos uniques, mais il manque de précision à petite échelle. Ainsi, comparer deux uniques ayant des scores de 1100 et 1105 n’est pas pertinent : elles possèdent une force similaire, mais la seconde n'est pas nécessairement meilleure que la première.
+            </p>
+        </div>
+    {% elif get_locale() == 'it' %}
+        <div class="presentation">
+            <p> 
+                Benvenuto su <span style="color:#AB8000;font-weight:bold;">Uniques Ranking</span>, la piattaforma in cui i giocatori valutano e classificano le carte di gioco secondo un sistema di punteggio Elo dinamico.
+                <br> 
+                <br> 
+                🔸 Vota la carta più potente in ogni duello.
+                <br> 
+                🔸 Contribuisci a una classifica evolutiva basata sulle opinioni della comunità.
+                <br> 
+                🔸 Scopri le carte che dominano il gioco!
+                <br>
+                <br> 
+                La tua opinione conta: partecipa subito e aiutaci a creare la classifica delle carte uniche di Altered!
+                <br> 
+            </p> 
+        </div> 
+
+        <div class="presentation"> 
+            <p style="color:#AB8000;font-weight:bold;font-size:large;text-align:center"> 
+                Come partecipare? 
+            </p> 
+            <p> 
+                <a href="{{ url_for('register') }}" style="color:#926e01"> 
+                    🔸 Crea il tuo account. 
+                </a> 
+                <br> 
+                <a href="{{ url_for('add_cards') }}" style="color:#926e01"> 
+                    🔸 Aggiungi le tue carte uniche. 
+                </a> 
+                <br> 
+                <a href="{{ url_for('duel_rand') }}" style="color:#926e01"> 
+                    🔸 Partecipa ai duelli. 
+                </a> 
+                <br> 
+                <a href="{{ url_for('ladder') }}" style="color:#926e01"> 
+                    🔸 Consulta la classifica. 
+                </a> 
+            </p> 
+        </div> 
+
+        <div class="presentation"> 
+            <p style="color:#AB8000;font-weight:bold;font-size:large;text-align:center"> 
+                Interpretare il punteggio 
+            </p> 
+            <p> 
+                🔸Numero di duelli 
+                <br> 
+                Si considera che il punteggio di una carta unica sia significativo dopo aver disputato almeno una ventina di duelli. 
+                <br> 
+                🔸Valore del punteggio 
+                <br> 
+                Attualmente, una carta unica con un punteggio superiore a 1150 può essere considerata molto forte. Al contrario, una carta con un punteggio inferiore a 900 è generalmente molto debole. 
+                <br> 
+                🔸Precisione del punteggio 
+                <br> 
+                Il punteggio riflette una tendenza generale della potenza delle tue carte uniche, ma manca di precisione su piccola scala. Pertanto, confrontare due carte con punteggi di 1100 e 1105 non è significativo: hanno una forza simile, ma la seconda non è necessariamente migliore della prima. 
+            </p> 
+        </div> 
+    {% elif get_locale() == 'es' %}
+        <div class="presentation">  
+            <p>  
+                Bienvenido a <span style="color:#AB8000;font-weight:bold;">Uniques Ranking</span>, la plataforma donde los jugadores evalúan y clasifican las cartas del juego según un sistema de puntuación Elo dinámico.<br>  
+                <br>  
+                🔸 Vota por la carta más poderosa en cada duelo.<br>  
+                🔸 Contribuye a un ranking evolutivo basado en las opiniones de la comunidad.<br>  
+                🔸 ¡Descubre las cartas que dominan el juego!<br>  
+                <br>  
+                Tu opinión cuenta: participa ahora y ayúdanos a crear la clasificación de cartas únicas de Altered.<br>  
+            </p>  
+        </div>
+
+        <div class="presentation">  
+            <p style="color:#AB8000;font-weight:bold;font-size:large;text-align:center">  
+                ¿Cómo participar?  
+            </p>  
+            <p>  
+                <a href="{{ url_for('register') }}" style="color:#926e01">  
+                    🔸 Crea tu cuenta.  
+                </a>  
+                <br>  
+                <a href="{{ url_for('add_cards') }}" style="color:#926e01">  
+                    🔸 Añade tus cartas únicas.  
+                </a>  
+                <br>  
+                <a href="{{ url_for('duel_rand') }}" style="color:#926e01">  
+                    🔸 Participa en duelos.  
+                </a>  
+                <br>  
+                <a href="{{ url_for('ladder') }}" style="color:#926e01">  
+                    🔸 Explora la clasificación.  
+                </a>  
+            </p>  
+        </div>
+        
+        <div class="presentation">  
+            <p style="color:#AB8000;font-weight:bold;font-size:large;text-align:center">  
+                Interpretar la puntuación  
+            </p>  
+            <p>  
+                🔸Número de duelos  
+                <br>  
+                Se considera que la puntuación de una carta única es relevante después de haber disputado al menos una veintena de duelos.  
+                <br>  
+                🔸Valor de la puntuación  
+                <br>  
+                Actualmente, una carta única con una puntuación superior a 1150 puede considerarse muy fuerte. Por el contrario, una carta con una puntuación inferior a 900 es generalmente muy débil.  
+                <br>  
+                🔸Precisión de la puntuación  
+                <br>  
+                La puntuación refleja una tendencia general sobre la potencia de tus cartas únicas, pero carece de precisión a pequeña escala. Por lo tanto, comparar dos cartas con puntuaciones de 1100 y 1105 no es relevante: tienen una fuerza similar, pero la segunda no es necesariamente mejor que la primera.  
+            </p>  
+        </div>
+    {% elif get_locale() == 'de' %}
+        <div class="presentation">  
+            <p>  
+                Willkommen bei <span style="color:#AB8000;font-weight:bold;">Uniques Ranking</span>, der Plattform, auf der Spieler Spielkarten nach einem dynamischen Elo-Bewertungssystem bewerten und einstufen.<br>  
+                <br>  
+                🔸 Stimme für die stärkste Karte in jedem Duell ab.<br>  
+                🔸 Trage zu einem sich entwickelnden Ranking basierend auf den Meinungen der Community bei.<br>  
+                🔸 Entdecke die Karten, die das Spiel dominieren!<br>  
+                <br>  
+                Deine Meinung zählt: Nimm jetzt teil und hilf uns, das Ranking der einzigartigen Karten von Altered zu erstellen!<br>  
+            </p>  
+        </div>
+
+        <div class="presentation">  
+            <p style="color:#AB8000;font-weight:bold;font-size:large;text-align:center">  
+                Wie kann man teilnehmen?  
+            </p>  
+            <p>  
+                <a href="{{ url_for('register') }}" style="color:#926e01">  
+                    🔸 Erstelle dein Konto.  
+                </a>  
+                <br>  
+                <a href="{{ url_for('add_cards') }}" style="color:#926e01">  
+                    🔸 Füge deine einzigartigen Karten hinzu.  
+                </a>  
+                <br>  
+                <a href="{{ url_for('duel_rand') }}" style="color:#926e01">  
+                    🔸 Nimm an Duellen teil.  
+                </a>  
+                <br>  
+                <a href="{{ url_for('ladder') }}" style="color:#926e01">  
+                    🔸 Durchsuche das Ranking.  
+                </a>  
+            </p>  
+        </div>
+    
+        <div class="presentation">  
+            <p style="color:#AB8000;font-weight:bold;font-size:large;text-align:center">  
+                Die Punktzahl verstehen  
+            </p>  
+            <p>  
+                🔸Anzahl der Duelle  
+                <br>  
+                Die Punktzahl einer einzigartigen Karte gilt als aussagekräftig, nachdem sie mindestens zwanzig Duelle bestritten hat.  
+                <br>  
+                🔸Höhe der Punktzahl  
+                <br>  
+                Derzeit kann eine einzigartige Karte mit einer Punktzahl über 1150 als sehr stark angesehen werden. Umgekehrt ist eine Karte mit einer Punktzahl unter 900 in der Regel sehr schwach.  
+                <br>  
+                🔸Genauigkeit der Punktzahl  
+                <br>  
+                Die Punktzahl spiegelt eine allgemeine Tendenz zur Stärke deiner einzigartigen Karten wider, ist jedoch auf kleiner Skala ungenau. Daher ist der Vergleich zweier Karten mit Punktzahlen von 1100 und 1105 nicht aussagekräftig: Sie haben eine ähnliche Stärke, aber die zweite ist nicht unbedingt besser als die erste.  
+            </p>  
+        </div>
+    {% elif get_locale() == 'en' %}
+        <div class="presentation">  
+            <p>  
+                Welcome to <span style="color:#AB8000;font-weight:bold;">Uniques Ranking</span>, the platform where players evaluate and rank game cards using a dynamic Elo rating system.<br>  
+                <br>  
+                🔸 Vote for the most powerful card in each duel.<br>  
+                🔸 Contribute to an evolving ranking based on community opinions.<br>  
+                🔸 Discover the cards that dominate the game!<br>  
+                <br>  
+                Your opinion matters: join now and help us create the ranking of Altered's unique cards!<br>  
+            </p>  
+        </div>
+
+        <div class="presentation">  
+            <p style="color:#AB8000;font-weight:bold;font-size:large;text-align:center">  
+                How to participate?  
+            </p>  
+            <p>  
+                <a href="{{ url_for('register') }}" style="color:#926e01">  
+                    🔸 Create your account.  
+                </a>  
+                <br>  
+                <a href="{{ url_for('add_cards') }}" style="color:#926e01">  
+                    🔸 Add your unique cards.  
+                </a>  
+                <br>  
+                <a href="{{ url_for('duel_rand') }}" style="color:#926e01">  
+                    🔸 Participate in duels.  
+                </a>  
+                <br>  
+                <a href="{{ url_for('ladder') }}" style="color:#926e01">  
+                    🔸 Browse the ranking.  
+                </a>  
+            </p>  
+        </div>
+
+        <div class="presentation">  
+            <p style="color:#AB8000;font-weight:bold;font-size:large;text-align:center">  
+                Understanding the Score  
+            </p>  
+            <p>  
+                🔸Number of duels  
+                <br>  
+                A unique card's score is considered relevant after it has participated in at least twenty duels.  
+                <br>  
+                🔸Score range  
+                <br>  
+                Currently, a unique card with a score above 1150 can be considered very strong. Conversely, a card with a score below 900 is generally very weak.  
+                <br>  
+                🔸Score accuracy  
+                <br>  
+                The score reflects a general trend in the strength of your unique cards, but it lacks precision on a small scale. Therefore, comparing two cards with scores of 1100 and 1105 is not meaningful: they have similar strength, but the second one is not necessarily better than the first.  
+            </p>  
+        </div>    
+    {% endif %}
+
+    <div id="space2" style="height: 50px;"></div>
+
     <div class="row card-box-transparent mobilemargin" style="width: 100%;">
         <div class="row-justify-content-center" style="width: 100%; gap: 7%;">
             <div class="col-md-4">

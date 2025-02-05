@@ -364,6 +364,24 @@ h3{
     width:100%;
 }
 
+.presentation {
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px); 
+    border-radius: 15px;
+    margin: 20px;
+    padding: 20px 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.guides-row {
+    width: 100%;
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+    gap: 10%;
+}
+
 /* PAGE REGISTER */
 
 
@@ -491,11 +509,7 @@ tr{
     background: linear-gradient(135deg, #FFD740, #EFB300, #C79100);
 
 }
-/*
-.ladder-container, .stat-table{
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 6px 12px rgba(0, 0, 0, 0.1);
-}
-*/
+
 .ladder-container {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 6px 12px rgba(0, 0, 0, 0.1);
 }
@@ -881,95 +895,6 @@ textarea {
 
 .last-duel-desc {
     flex:1;
-}
-
-.massduel-container {
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    grid-template-rows: repeat(5,auto);
-    gap: 10px;
-    width:100%;
-}
-
-.last-massduel-cards {
-    display: grid;
-    grid-template-columns: repeat(1,1fr);
-    grid-template-rows: repeat(10,auto);
-    gap:10px;
-    column-gap: 10px;
-    place-items:center;
-    text-align:center;
-    width:100%;
-}
-
-.last-massduel-card {
-    border: 2px solid var(--secondary-color);
-    max-width: 21%;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
-    background-color: var(--secondary-color);
-    color:white;
-    text-align: center;
-}
-
-.last-massduel-card a {
-    color: var(--primary-color);
-    font-weight: bold;
-}
-
-.tool-grid {
-    display:grid;
-    grid-template-columns: repeat(3,1fr);
-    gap:20px;
-    width:100%;
-}
-
-.tool-bloc {
-    width:100%;
-    border:2px solid var(--secondary-color);
-    box-shadow: 3px 3px 1px var(--primary-color);
-    display:flex;
-    flex-direction: column;
-    color: var(--secondary-color);
-    justify-content: space-between;
-}
-
-.tool-bloc .illu {
-    flex:1;
-    width:100%;
-}
-
-.tool-bloc .desc-tool {
-    flex:1;
-    padding:3px;
-    text-align:center;
-    background-color: var(--back-color);
-}
-
-.discord-button {
-    display: inline-flex;
-    align-items: center;
-    background-color: #7289DA;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-}
-
-.discord-button:hover {
-    background-color: #5b6eae;
-}
-
-.discord-button svg {
-    width: 24px;
-    height: 24px;
-    margin-right: 10px;
 }
 
 @media (max-width: 1050px) {
