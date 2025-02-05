@@ -79,7 +79,7 @@
                     <tr>
                         <td>{{ loop.index + start_num }}</td>
                         <td>
-                            <a href="{{ url_for('cardview', card_ref=card.reference) }}"><img src="{% if get_locale() == 'fr' %}{{ card.url_fr_fr }}{% elif get_locale() == 'it' %}{{ card.url_it_it }}{% elif get_locale() == 'es' %}{{ card.url_es_es }}{% elif get_locale() == 'de' %}{{ card.url_de_de }}{% elif get_locale() == 'en' %}{{ card.url_en_us }}{% endif %}" alt="{% if get_locale() == 'fr' %}{{ card.character_fr_fr }}{% elif get_locale() == 'it' %}{{ card.character_it_it }}{% elif get_locale() == 'es' %}{{ card.character_es_es }}{% elif get_locale() == 'de' %}{{ card.character_de_de }}{% elif get_locale() == 'en' %}{{ card.character_en_us }}{% endif %}" class="hidden-card load-img" url-en="{{card.url_en_us}}" onerror="this.onerror=null;this.src='{{ card.url_en_us }}';">
+                            <a href="{{ url_for('cardview', card_ref=card.reference) }}" class="cardname"><img src="{% if get_locale() == 'fr' %}{{ card.url_fr_fr }}{% elif get_locale() == 'it' %}{{ card.url_it_it }}{% elif get_locale() == 'es' %}{{ card.url_es_es }}{% elif get_locale() == 'de' %}{{ card.url_de_de }}{% elif get_locale() == 'en' %}{{ card.url_en_us }}{% endif %}" alt="{% if get_locale() == 'fr' %}{{ card.character_fr_fr }}{% elif get_locale() == 'it' %}{{ card.character_it_it }}{% elif get_locale() == 'es' %}{{ card.character_es_es }}{% elif get_locale() == 'de' %}{{ card.character_de_de }}{% elif get_locale() == 'en' %}{{ card.character_en_us }}{% endif %}" class="hidden-card load-img" url-en="{{card.url_en_us}}" onerror="this.onerror=null;this.src='{{ card.url_en_us }}';">
                                 {% if card in current_user.favcards %}
                                     <i class="fas fa-star" style="color:#AB8000;"></i>
                                 {% endif %}
@@ -217,5 +217,38 @@
         currentUrl.searchParams.set('page', '1');
         window.location.href = currentUrl.toString();
     }
+
+    document.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('mouseover', function(event) {
+            var hiddenCard = event.target.querySelector('.hidden-card');
+            if (hiddenCard) {
+                hiddenCard.style.left = '';
+                hiddenCard.style.top = '';
+                // Obtenez la position de l'élément dans la page (y compris le défilement)
+                var rect = hiddenCard.getBoundingClientRect();
+                var windowWidth = window.innerWidth;
+                var windowHeight = window.innerHeight;
+                var scrollTop = window.scrollY;  // Récupère la position du scroll vertical
+
+                // Ajuster la position de l'image en fonction du défilement
+                var newTop = rect.top + scrollTop;  // Calculer la position absolue sur l'axe vertical
+                var newLeft = -300;  // Pas besoin d'ajuster à gauche, on reste avec le calcul original
+
+                // Vérifier si l'image dépasse à droite de l'écran
+                if (rect.right > windowWidth) {
+                    hiddenCard.style.left = (windowWidth - rect.width) + 'px';  // Déplacer l'image à gauche
+                } else {
+                    hiddenCard.style.left = newLeft + 'px';  // Sinon, on reste dans la position initiale
+                }
+
+                // Vérifier si l'image dépasse en bas de l'écran
+                if (newTop + rect.height > windowHeight + scrollTop) {
+                    hiddenCard.style.top = -rect.height + 'px';  // Déplacer l'image vers le haut
+                } else {
+                    hiddenCard.style.top = '100%';  // Positionner sous le texte normalement
+                }
+            }
+        });
+    });
 </script>
 {% endblock %}

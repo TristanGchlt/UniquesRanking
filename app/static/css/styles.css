@@ -576,12 +576,16 @@ div.card-graph > img {
     background-color: var(--back-color);
 }
 
+.cardname {
+    position: relative;
+}
+
 .hidden-card {
     display: none;
     position: absolute;
     max-width: 300px;
-    top:50px;
-    left:50px;
+    top:100%;
+    left:-300px;
     z-index: 50;
     border-radius:10px;
 }
@@ -1437,5 +1441,11 @@ h1 {
         max-width: 90%;
      }
 
+     .filters-container {
+        flex-direction: column;
+     }
+     a:hover .hidden-card {
+        display: none;
+    }
 }
 
