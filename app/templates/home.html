@@ -348,6 +348,82 @@
             </div>
         </div>
     </div>
+    {% if get_locale() == 'fr' %}
+        <div class="presentation">
+            <p style="color:#AB8000;font-weight:bold;font-size:large;text-align:center">  
+                Cartes inactives
+            </p> 
+            <p>
+                Pour permettre au nouvelles cartes d'être rapidement évaluées par la communauté, certaines uniques peuvent devenir inactives.
+                <br>
+                <br>
+                Une unique inactive n'apparait plus dans les duels. Elle peut tout de même redevenir active, pour cela, il suffit de cliquer sur son nom, que ce soit dans la liste de vos favoris, ou bien dans le classement.
+                <br>
+                <br>
+                Automatiquement, les cartes uniques qui ne sont favories d'aucun utilisateur, ou uniquement d'utilisateur n'ayant effectué pas ou peu de duels récemment deviennent inactives.
+            </p>
+        </div>
+    {% elif get_locale() == 'it' %}
+        <div class="presentation">
+            <p style="color:#AB8000;font-weight:bold;font-size:large;text-align:center">  
+                Carte inattive
+            </p> 
+            <p>
+                Per consentire alle nuove carte di essere rapidamente valutate dalla comunità, alcune uniche potrebbero diventare inattive.
+                <br>
+                <br>
+                Una carta unica inattiva non appare più nei duelli. Tuttavia, può tornare attiva, basta fare clic sul suo nome, sia nella lista dei tuoi preferiti, sia nella classifica.
+                <br>
+                <br>
+                Automaticamente, le carte uniche che non sono favorite da nessun utente, o solo da utenti che non hanno fatto molti duelli di recente, diventano inattive.
+            </p>
+        </div>
+    {% elif get_locale() == 'es' %}
+        <div class="presentation">
+            <p style="color:#AB8000;font-weight:bold;font-size:large;text-align:center">  
+                Cartas inactivas
+            </p> 
+            <p>
+                Para permitir que las nuevas cartas sean evaluadas rápidamente por la comunidad, algunas cartas únicas pueden volverse inactivas.
+                <br>
+                <br>
+                Una carta única inactiva ya no aparece en los duelos. Sin embargo, puede volver a activarse; para hacerlo, basta con hacer clic en su nombre, ya sea en la lista de tus favoritos o en el ranking.
+                <br>
+                <br>
+                Automáticamente, las cartas únicas que no están en los favoritos de ningún usuario, o solo en los favoritos de usuarios que no han participado recientemente en muchos duelos, se vuelven inactivas.
+            </p>
+        </div>
+    {% elif get_locale() == 'de' %}
+        <div class="presentation">
+            <p style="color:#AB8000;font-weight:bold;font-size:large;text-align:center">  
+                Inaktive Karten
+            </p> 
+            <p>
+                Um neuen Karten zu ermöglichen, schnell von der Community bewertet zu werden, können einige einzigartige Karten inaktiv werden.
+                <br>
+                <br>
+                Eine inaktive Karte erscheint nicht mehr in den Duellen. Sie kann jedoch wieder aktiv werden. Dazu muss man einfach auf ihren Namen klicken, sei es in der Liste der Favoriten oder im Ranking.
+                <br>
+                <br>
+                Automatisch werden einzigartige Karten, die von keinem Benutzer favorisiert werden oder nur von Benutzern, die kürzlich wenig oder keine Duelle gespielt haben, inaktiv.
+            </p>
+        </div>
+    {% elif get_locale() == 'en' %}
+        <div class="presentation">
+            <p style="color:#AB8000;font-weight:bold;font-size:large;text-align:center">  
+                Inactive cards
+            </p> 
+            <p>
+                To allow new cards to be quickly evaluated by the community, some unique cards may become inactive.
+                <br>
+                <br>
+                An inactive card no longer appears in duels. However, it can become active again by simply clicking on its name, either in your favorites list or in the rankings.
+                <br>
+                <br>
+                Automatically, unique cards that are not favored by any users, or only by users who have recently played few or no duels, become inactive.
+            </p>
+        </div>
+    {% endif %}
 </div>
 <div id="space2" style="height: 200px;"></div>
 <script>
