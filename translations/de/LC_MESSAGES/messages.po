@@ -223,3 +223,6 @@ msgstr "Alle"
 
 msgid "filterset"
 msgstr "Auswahlfilter"
+
+msgid "notenoughduel"
+msgstr "Dieser Charakter hat nicht genügend Duelle, um Statistiken bereitzustellen."

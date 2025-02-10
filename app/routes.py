@@ -709,50 +709,63 @@ def profile() :
 @app.route('/card/<string:card_ref>')
 @login_required
 def cardview(card_ref) :
+    # Récupération de la carte
     card = db.session.query(Card).filter_by(reference=card_ref).first()
     if card :
+        # Quand la carte est active, on montre sa page, quand elle est inactive, on la rend active puis on montre sa page.
         if card.hide == 0 :
+            # Récupération des favoris pour afficher le bon bouton (ajouter ou supprimer des fav)
             favcards = current_user.favcards
             favorites = []
             for c in favcards :
                 favorites.append(c.id)
+            # variables pour les filtres
             lang = get_locale()
             duel_min=5
-            avg_elo = db.session.query(db.func.avg(Card.elo)).filter(
-                Card.hide == 0,
+            cards_over_threshold = db.session.query(db.func.count(Card.id)).filter(
                 Card.character_en_us == card.character_en_us,
                 Card.faction == card.faction,
                 Card.nb_duel >= duel_min).scalar()
-            rank = db.session.query(db.func.count(Card.id)).filter(
-                Card.hide == 0,
-                Card.elo > card.elo,
-                Card.nb_duel >= duel_min).scalar() +1
-            total_cards = len(db.session.query(Card).filter(Card.nb_duel >= duel_min, Card.hide==0).all())
-            all_elos = [c.elo for c in db.session.query(Card).filter(
-                                            Card.character_en_us == card.character_en_us,
-                                            Card.faction == card.faction,
-                                            Card.nb_duel >= duel_min).all()
-                        ]
-            max_elo = max(all_elos)+50
-            min_elo = min(all_elos)-50
-            lang = get_locale()
-            if lang == 'fr' :
-                character = card.character_fr_fr
-                title = "Graphique de répartition du Elo"
-            elif lang == "en" :
-                character = card.character_en_us
-                title = "Elo Distribution Chart"
-            elif lang == "es" :
-                character = card.character_es_es
-                title = "Gráfico de Distribución de Elo"
-            elif lang == "it" :
-                character = card.character_it_it
-                title = "Grafico di Distribuzione Elo"
-            elif lang == "de" :
-                character = card.character_de_de
-                title = "Elo-Verteilungsgrafik"
-            graph = card_graph(all_elos, card.faction, title=f'{title}\n{card.faction} - {character}', min_elo=min_elo, max_elo=max_elo, card_elo=card.elo)
-            html_graph = f'<img src="data:image/png;base64,{graph}">'
+            if cards_over_threshold > 0 :
+                # Récupération des stat à afficher
+                avg_elo = db.session.query(db.func.avg(Card.elo)).filter(
+                    Card.character_en_us == card.character_en_us,
+                    Card.faction == card.faction,
+                    Card.nb_duel >= duel_min).scalar()
+                rank = db.session.query(db.func.count(Card.id)).filter(
+                    Card.hide == 0,
+                    Card.elo > card.elo,
+                    Card.nb_duel >= duel_min).scalar() +1
+                total_cards = len(db.session.query(Card).filter(Card.nb_duel >= duel_min, Card.hide==0).all())
+                all_elos = [c.elo for c in db.session.query(Card).filter(
+                                                Card.character_en_us == card.character_en_us,
+                                                Card.faction == card.faction,
+                                                Card.nb_duel >= duel_min).all()]
+                max_elo = max(all_elos)+20
+                min_elo = min(all_elos)-20
+                if lang == 'fr' :
+                    character = card.character_fr_fr
+                    title = "Graphique de répartition du Elo"
+                elif lang == "es" :
+                    character = card.character_es_es
+                    title = "Gráfico de Distribución de Elo"
+                elif lang == "it" :
+                    character = card.character_it_it
+                    title = "Grafico di Distribuzione Elo"
+                elif lang == "de" :
+                    character = card.character_de_de
+                    title = "Elo-Verteilungsgrafik"
+                else :
+                    character = card.character_en_us
+                    title = "Elo Distribution Chart"
+                title = f'{title}\n{card.faction} - {character}'
+                graph = card_graph(all_elos, card.faction, title=title, min_elo=min_elo, max_elo=max_elo, card_elo=card.elo)
+                html_graph = f'<img src="data:image/png;base64,{graph}">'
+            else :
+                avg_elo = None
+                rank = None
+                total_cards= None
+                html_graph = None
         else :
             card = update_card_from_ref(card, card_ref)
             if card :

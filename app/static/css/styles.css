@@ -505,7 +505,7 @@ form button {
     padding: 10px;
 }
 
-tr{
+.ladder-table tr, .stat-table tr{
     background: linear-gradient(135deg, #FFD740, #EFB300, #C79100);
 
 }
@@ -629,7 +629,8 @@ a:hover .hidden-card {
     box-shadow: 0 0 5px var(--primary-color);
 }
 
-/* PAGE GLOBAL STAT */
+/* PAGE PROFILE */
+
 
 .stat-table {
     border-collapse: collapse;
@@ -671,18 +672,6 @@ a:hover .hidden-card {
     font-weight: normal;
 }
 
-.stat-card-thumbnail {
-    max-width: 28px;
-    height: auto;
-    border-radius: 1px;
-}
-
-.stat-disclaimer {
-    text-align: center;
-}
-
-/* PAGE PROFILE */
-
 .profilecounters {
     justify-content: space-evenly;
     width:100%;
@@ -696,6 +685,12 @@ a:hover .hidden-card {
 
 /* PAGE CARTE */
 
+.stat-disclaimer {
+    text-align: center;
+    color: var(--secondary-color-clearer);
+    font-style: italic;
+}
+
 .stat-title {
     color: var(--primary-color-darker);
     font-weight: bold;
@@ -705,20 +700,11 @@ a:hover .hidden-card {
     color: var(--secondary-color);
 }
 
-.comform {
-    width: 100%;
-}
 
-textarea {
-    width: 100%; /* Prend toute la largeur disponible */
-    padding: 10px; /* Espace interne */
-    border-radius: 4px; /* Coins arrondis */
-    border: 1px solid var(--secondary-color); /* Bordure légère */
-    font-size: 16px; /* Taille de la police */
-    resize: none; /* Permet de redimensionner verticalement seulement */
-    box-sizing: border-box; /* Inclut la bordure et le padding dans la largeur totale */
-    margin-bottom: 20px; /* Espacement sous le champ de texte */
-}
+
+
+
+
 
 .duel-grid {
     display:grid;

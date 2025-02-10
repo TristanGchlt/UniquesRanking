@@ -223,3 +223,6 @@ msgstr "Tutte"
 
 msgid "filterset"
 msgstr "Filtro di Edizione"
+
+msgid "notenoughduel"
+msgstr "Questo personaggio non ha abbastanza duelli per fornire statistiche."
